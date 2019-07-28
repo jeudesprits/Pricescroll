@@ -184,7 +184,18 @@ extension DSCVCollectionView {
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [topSubgroup, bottomSubgroup])
         group.interItemSpacing = .fixed(10.0)
         
+        let boundarySupplementaryItemSize = NSCollectionLayoutSize(
+             widthDimension: .fractionalWidth(0.85),
+            heightDimension: .estimated(44.0)
+        )
+        let titleBoundarySupplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
+             layoutSize: boundarySupplementaryItemSize,
+            elementKind: UICollectionView.elementKindSectionTitle,
+              alignment: .topLeading
+        )
+        
         let section = NSCollectionLayoutSection(group: group)
+        section.boundarySupplementaryItems = [titleBoundarySupplementaryItem]
         section.interGroupSpacing = 10.0
         section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 20.0, bottom: 0.0, trailing: 20.0)
         section.orthogonalScrollingBehavior = .groupPaging
