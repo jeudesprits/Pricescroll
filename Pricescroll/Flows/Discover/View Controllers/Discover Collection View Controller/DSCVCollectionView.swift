@@ -82,7 +82,7 @@ extension DSCVCollectionView {
         section.interGroupSpacing = 10.0
         section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 20.0, bottom: 20.0, trailing: 20.0)
         section.orthogonalScrollingBehavior = .groupPaging
-        section.visibleItemsInvalidationHandler = createFeed1ItemsInvalidationHandler(
+        section.visibleItemsInvalidationHandler = createFeed1ItemsInvalidationHandlerWith(
                 interGroupSpacing: section.interGroupSpacing,
                   sectionTopInset: section.contentInsets.top
         )
