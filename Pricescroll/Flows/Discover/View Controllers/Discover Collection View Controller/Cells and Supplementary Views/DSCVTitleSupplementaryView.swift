@@ -14,7 +14,7 @@ final class DSCVTitleSupplementaryView: UICollectionReusableView, Identifiable {
         $0.text = "Как у вас дела?"
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.adjustsFontForContentSizeCategory = true
-        $0.adjustsFontForContentSizeCategory = true
+        $0.numberOfLines = 2
         $0.font = .preferredFont(forTextStyle: .title1)
         $0.textColor = .label
         return $0
@@ -32,7 +32,7 @@ final class DSCVTitleSupplementaryView: UICollectionReusableView, Identifiable {
         NSLayoutConstraint.activate([
             title.topAnchor.constraint(equalTo: topAnchor),
             title.leadingAnchor.constraint(equalTo: leadingAnchor),
-            title.trailingAnchor.constraint(equalToSystemSpacingAfter: trailingAnchor, multiplier: 2.0),
+            title.trailingAnchor.constraint(equalTo: trailingAnchor),
             bottomAnchor,
         ])
     }
