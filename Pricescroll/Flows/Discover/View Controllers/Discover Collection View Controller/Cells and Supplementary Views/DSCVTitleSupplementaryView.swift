@@ -15,7 +15,6 @@ final class DSCVTitleSupplementaryView: UICollectionReusableView, Identifiable {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.adjustsFontForContentSizeCategory = true
         $0.numberOfLines = 2
-        // TODO: - Change font to: .preferredFont(forTextStyle: .title2, compatibleWith: UITraitCollection(legibilityWeight: .bold))
         $0.font = .preferredFont(forTextStyle: .title2, weight: .semibold)
         $0.textColor = .label
         return $0
