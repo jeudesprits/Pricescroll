@@ -59,7 +59,7 @@ final class DSCVCollectionView: UICollectionView {
 
 extension DSCVCollectionView {
     
-    private static func createFeed1ItemsInvalidationHandlerWith(interGroupSpacing: CGFloat, sectionTopInset: CGFloat) -> NSCollectionLayoutSectionVisibleItemsInvalidationHandler {
+    private static func createFeed1ItemsInvalidationHandler(withInterGroupSpacing interGroupSpacing: CGFloat, sectionTopInset: CGFloat) -> NSCollectionLayoutSectionVisibleItemsInvalidationHandler {
         { items, offset, layoutEnvironment in
             items.forEach {
                 guard $0.representedElementCategory == .cell else { return }
@@ -90,8 +90,8 @@ extension DSCVCollectionView {
         section.interGroupSpacing = 10.0
         section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 20.0, bottom: 20.0, trailing: 20.0)
         section.orthogonalScrollingBehavior = .groupPaging
-        section.visibleItemsInvalidationHandler = createFeed1ItemsInvalidationHandlerWith(
-                interGroupSpacing: section.interGroupSpacing,
+        section.visibleItemsInvalidationHandler = createFeed1ItemsInvalidationHandler(
+            withInterGroupSpacing: section.interGroupSpacing,
                   sectionTopInset: section.contentInsets.top
         )
         
