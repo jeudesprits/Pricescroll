@@ -23,6 +23,7 @@
 		55A8D3BE22EDF3C70055888F /* DSCVFeed4CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A8D3BD22EDF3C70055888F /* DSCVFeed4CollectionViewCell.swift */; };
 		55A8D3C022EE242E0055888F /* DSCVFeed5CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A8D3BF22EE242E0055888F /* DSCVFeed5CollectionViewCell.swift */; };
 		55B1DE9722E9BE620075A8D2 /* DSCVFeed3CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B1DE9522E9BE210075A8D2 /* DSCVFeed3CollectionViewCell.swift */; };
+		55C8C41422EF70280005456A /* UIFont+Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C8C41322EF70280005456A /* UIFont+Weight.swift */; };
 		55E0D6D422E79AB8008FA4F7 /* DSCVTitleSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E0D6D322E79AB8008FA4F7 /* DSCVTitleSupplementaryView.swift */; };
 		55E0D6D522E7A9EC008FA4F7 /* DSCVCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55342DE522E6499F00A7166F /* DSCVCollectionView.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		55A8D3BD22EDF3C70055888F /* DSCVFeed4CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSCVFeed4CollectionViewCell.swift; sourceTree = "<group>"; };
 		55A8D3BF22EE242E0055888F /* DSCVFeed5CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSCVFeed5CollectionViewCell.swift; sourceTree = "<group>"; };
 		55B1DE9522E9BE210075A8D2 /* DSCVFeed3CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSCVFeed3CollectionViewCell.swift; sourceTree = "<group>"; };
+		55C8C41322EF70280005456A /* UIFont+Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Weight.swift"; sourceTree = "<group>"; };
 		55E0D6D322E79AB8008FA4F7 /* DSCVTitleSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSCVTitleSupplementaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +156,7 @@
 				55A4609D22E4EDA10079C9C5 /* SceneDelegate.swift */,
 				55A460D022E4EF0F0079C9C5 /* Flows */,
 				553193D722E7814C0005DEDD /* Identifieble.swift */,
+				55C8C41322EF70280005456A /* UIFont+Weight.swift */,
 				55A460A722E4EDA20079C9C5 /* Assets.xcassets */,
 				55A460A922E4EDA20079C9C5 /* LaunchScreen.storyboard */,
 				55A460AC22E4EDA20079C9C5 /* Info.plist */,
@@ -346,6 +349,7 @@
 				55A460CF22E4EE710079C9C5 /* TabBarController.swift in Sources */,
 				55A8D3C022EE242E0055888F /* DSCVFeed5CollectionViewCell.swift in Sources */,
 				553193D822E7814C0005DEDD /* Identifieble.swift in Sources */,
+				55C8C41422EF70280005456A /* UIFont+Weight.swift in Sources */,
 				55A460D222E4F04E0079C9C5 /* DSCVNavigationController.swift in Sources */,
 				55A460D822E5D0430079C9C5 /* DSCVCollectionViewController.swift in Sources */,
 				55A460A622E4EDA10079C9C5 /* Pricescroll.xcdatamodeld in Sources */,

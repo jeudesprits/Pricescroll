@@ -10,7 +10,7 @@ import UIKit
 
 final class DSCVCollectionView: UICollectionView {
     
-    enum Section: CaseIterable { case Feed1, Feed2, Feed3, Feed4, Feed5, Feed6 }
+    enum Section: CaseIterable { case Feed1, Feed2, Feed3, Feed4, Feed5, Feed6, Feed7, Feed8 }
     
     private func setupAppearance() {
         backgroundColor = .systemBackground
@@ -246,7 +246,7 @@ extension DSCVCollectionView {
         return section
     }
     
-    private static func createFeed6Section(with layoutEnvirlayonment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+    private static func createFeed6Section(with layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
              widthDimension: .fractionalWidth(1.0),
             heightDimension: .estimated(44)
@@ -273,6 +273,106 @@ extension DSCVCollectionView {
         return section
     }
     
+    private static func createFeed7Section(with layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+        let groupWidth = layoutEnvironment.container.effectiveContentSize.width - 2.0 * 20.0
+        let itemWidth = (groupWidth - 2 * 10.0) / 3.0
+        
+        let itemSize = NSCollectionLayoutSize(
+             widthDimension: .absolute(itemWidth),
+            heightDimension: .estimated(itemWidth)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let subgroupSize = NSCollectionLayoutSize(
+             widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(itemWidth)
+        )
+        let topSubgroup = NSCollectionLayoutGroup.horizontal(layoutSize: subgroupSize, subitems: [item])
+        topSubgroup.interItemSpacing = .fixed(10.0)
+        
+        let bottomSubgroup = NSCollectionLayoutGroup.horizontal(layoutSize: subgroupSize, subitems: [item])
+        bottomSubgroup.interItemSpacing = .fixed(10.0)
+        
+        let groupSize = NSCollectionLayoutSize(
+             widthDimension: .absolute(groupWidth),
+            heightDimension: .estimated(groupWidth)
+        )
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [topSubgroup, bottomSubgroup])
+        group.interItemSpacing = .fixed(10.0)
+        
+        let boundarySupplementaryItemSize = NSCollectionLayoutSize(
+             widthDimension: .fractionalWidth(0.85),
+            heightDimension: .estimated(44.0)
+        )
+        let titleBoundarySupplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
+             layoutSize: boundarySupplementaryItemSize,
+            elementKind: UICollectionView.elementKindSectionTitle,
+              alignment: .topLeading
+        )
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.boundarySupplementaryItems = [titleBoundarySupplementaryItem]
+        section.interGroupSpacing = 10.0
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 20.0, bottom: 0.0, trailing: 20.0)
+        section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+        
+        return section
+    }
+    
+    private static func createFeed8Section(with layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+        let groupWidth = layoutEnvironment.container.effectiveContentSize.width - 2.0 * 20.0
+        let trailingItemWidth = (groupWidth - 2 * 20.0) / 3.0
+        let leadingItemWidth =  trailingItemWidth * 2.0 + 20.0
+        
+        let leadingItemSize = NSCollectionLayoutSize(
+             widthDimension: .absolute(leadingItemWidth),
+            heightDimension: .absolute(leadingItemWidth)
+        )
+        let leadingItem = NSCollectionLayoutItem(layoutSize: leadingItemSize)
+        
+        let trailingItemSize = NSCollectionLayoutSize(
+              widthDimension: .fractionalWidth(1.0),
+             heightDimension: .fractionalHeight(0.5)
+        )
+        let trailingItem = NSCollectionLayoutItem(layoutSize: trailingItemSize)
+        
+        let trailingGroupSize = NSCollectionLayoutSize(
+            widthDimension: .absolute(trailingItemWidth),
+            heightDimension: .fractionalHeight(1.0)
+        )
+        let trailingGroup = NSCollectionLayoutGroup.vertical(
+            layoutSize: trailingGroupSize,
+               subitem: trailingItem,
+                 count: 2
+        )
+        trailingGroup.interItemSpacing = .fixed(20.0)
+        
+        let groupSize = NSCollectionLayoutSize(
+             widthDimension: .absolute(groupWidth),
+            heightDimension: .absolute(trailingItemWidth * 2.0 + 20.0)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [leadingItem, trailingGroup])
+        group.interItemSpacing = .fixed(20.0)
+        
+        let boundarySupplementaryItemSize = NSCollectionLayoutSize(
+             widthDimension: .fractionalWidth(0.85),
+            heightDimension: .estimated(44.0)
+        )
+        let titleBoundarySupplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
+             layoutSize: boundarySupplementaryItemSize,
+            elementKind: UICollectionView.elementKindSectionTitle,
+              alignment: .topLeading
+        )
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.boundarySupplementaryItems = [titleBoundarySupplementaryItem]
+        section.interGroupSpacing = 20.0
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 20.0, bottom: 0.0, trailing: 20.0)
+        section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+        
+        return section
+    }
+    
     private static func createLayout() -> UICollectionViewLayout {
         let sectionProvider: UICollectionViewCompositionalLayoutSectionProvider = { (sectionIndex, layoutEnvironment) in
             switch sectionIndex {
@@ -288,6 +388,10 @@ extension DSCVCollectionView {
                 return createFeed5Section(with: layoutEnvironment)
             case 5:
                 return createFeed6Section(with: layoutEnvironment)
+            case 6:
+                return createFeed7Section(with: layoutEnvironment)
+            case 7:
+                return createFeed8Section(with: layoutEnvironment)
             default:
                 return nil
             }

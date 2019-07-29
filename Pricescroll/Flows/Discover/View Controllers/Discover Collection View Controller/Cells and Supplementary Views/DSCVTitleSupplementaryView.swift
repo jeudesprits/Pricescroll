@@ -11,11 +11,12 @@ import UIKit
 final class DSCVTitleSupplementaryView: UICollectionReusableView, Identifiable {
     
     private lazy var title: UILabel = {
-        $0.text = "Как у вас дела?"
+        $0.text = "Other Albums"
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.adjustsFontForContentSizeCategory = true
         $0.numberOfLines = 2
-        $0.font = .preferredFont(forTextStyle: .title1)
+        // TODO: - Change font to: .preferredFont(forTextStyle: .title2, compatibleWith: UITraitCollection(legibilityWeight: .bold))
+        $0.font = .preferredFont(forTextStyle: .title2, weight: .semibold)
         $0.textColor = .label
         return $0
     }(UILabel(frame: .zero))
