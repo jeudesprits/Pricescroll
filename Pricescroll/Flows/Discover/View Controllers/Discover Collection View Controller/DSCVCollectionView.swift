@@ -10,7 +10,7 @@ import UIKit
 
 final class DSCVCollectionView: UICollectionView {
     
-    enum Section: CaseIterable { case Feed1, Feed2, Feed3, Feed4, Feed5, Feed6, Feed7, Feed8 }
+    enum Section: CaseIterable { case Feed1, Feed2, Feed3, Feed4, Feed5, Feed6, Feed7, Feed8, Feed9 }
     
     private func setupAppearance() {
         backgroundColor = .systemBackground
@@ -36,6 +36,10 @@ final class DSCVCollectionView: UICollectionView {
         register(
                                         DSCVFeed5CollectionViewCell.self,
             forCellWithReuseIdentifier: DSCVFeed5CollectionViewCell.reuseIdentifier
+        )
+        register(
+                                        DSCVFeed6CollectionViewCell.self,
+            forCellWithReuseIdentifier: DSCVFeed6CollectionViewCell.reuseIdentifier
         )
         register(
                                         DSCVTitleSupplementaryView.self,
@@ -373,6 +377,39 @@ extension DSCVCollectionView {
         return section
     }
     
+    private static func createFeed9Section(with layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+        let groupWidth = layoutEnvironment.container.effectiveContentSize.width - 2.0 * 20.0
+        let itemSize = NSCollectionLayoutSize(
+              widthDimension: .fractionalWidth(1.0),
+             heightDimension: .fractionalHeight(1.0 / 3.0)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(
+             widthDimension: .absolute(groupWidth),
+            heightDimension: .absolute(groupWidth * 0.32 * 3.0)
+        )
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 3)
+        
+        let boundarySupplementaryItemSize = NSCollectionLayoutSize(
+             widthDimension: .fractionalWidth(0.85),
+            heightDimension: .estimated(44.0)
+        )
+        let titleBoundarySupplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
+             layoutSize: boundarySupplementaryItemSize,
+            elementKind: UICollectionView.elementKindSectionTitle,
+              alignment: .topLeading
+        )
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.boundarySupplementaryItems = [titleBoundarySupplementaryItem]
+        section.interGroupSpacing = 10.0
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 20.0, bottom: 0.0, trailing: 20.0)
+        section.orthogonalScrollingBehavior = .groupPaging
+        
+        return section
+    }
+    
     private static func createLayout() -> UICollectionViewLayout {
         let sectionProvider: UICollectionViewCompositionalLayoutSectionProvider = { (sectionIndex, layoutEnvironment) in
             switch sectionIndex {
@@ -392,6 +429,8 @@ extension DSCVCollectionView {
                 return createFeed7Section(with: layoutEnvironment)
             case 7:
                 return createFeed8Section(with: layoutEnvironment)
+            case 8:
+                return createFeed9Section(with: layoutEnvironment)
             default:
                 return nil
             }

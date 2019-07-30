@@ -29,11 +29,17 @@ final class DSCVFeed5CollectionViewCell: UICollectionViewCell, Identifiable {
         return $0
     }(UIImageView(frame: .zero))
     
-    private lazy var seperatorView: UIView = {
+    private lazy var separatorView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .separator
         return $0
     }(UIView(frame: .zero))
+    
+    var showsSeparator = true {
+        didSet {
+            separatorView.isHidden = !showsSeparator
+        }
+    }
     
     private func setupLabelConstraints() {
         contentView.addSubview(label)
@@ -67,13 +73,13 @@ final class DSCVFeed5CollectionViewCell: UICollectionViewCell, Identifiable {
     }
     
     private func setupSeparatorViewConstraints() {
-        contentView.addSubview(seperatorView)
+        contentView.addSubview(separatorView)
         
         NSLayoutConstraint.activate([
-            seperatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            seperatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            seperatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            seperatorView.heightAnchor.constraint(equalToConstant: 1.0 / UIScreen.main.scale)
+            separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            separatorView.heightAnchor.constraint(equalToConstant: 1.0 / UIScreen.main.scale)
         ])
     }
     

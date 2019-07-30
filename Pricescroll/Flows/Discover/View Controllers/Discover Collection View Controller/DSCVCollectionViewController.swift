@@ -48,11 +48,29 @@ final class DSCVCollectionViewController: UICollectionViewController {
             } else if indexPath.section == 4 {
                 return self.configureCell(type: DSCVFeed4CollectionViewCell.self, in: collectionView, for: indexPath)
             } else if indexPath.section == 5 {
-                return self.configureCell(type: DSCVFeed5CollectionViewCell.self, in: collectionView, for: indexPath)
+                return self.configureCell(
+                    type: DSCVFeed5CollectionViewCell.self,
+                      in: collectionView,
+                     for: indexPath
+                ) { cell in
+                    if indexPath.item == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+                        cell.showsSeparator = false
+                    }
+                }
             } else if indexPath.section == 6 {
                 return self.configureCell(type: DSCVFeed2CollectionViewCell.self, in: collectionView, for: indexPath)
-            } else {
+            } else if indexPath.section == 7 {
                 return self.configureCell(type: DSCVFeed1CollectionViewCell.self, in: collectionView, for: indexPath)
+            } else {
+                return self.configureCell(
+                    type: DSCVFeed6CollectionViewCell.self,
+                      in: collectionView,
+                     for: indexPath
+                ) { cell in
+                    if (indexPath.item + 1).isMultiple(of: 3) {
+                        cell.showsSeparator = false
+                    }
+                }
             }
         }
         dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
@@ -66,7 +84,7 @@ final class DSCVCollectionViewController: UICollectionViewController {
         }
         
         let snapshot = NSDiffableDataSourceSnapshot<DSCVCollectionView.Section, Int>()
-        snapshot.appendSections([.Feed1, .Feed2, .Feed3, .Feed4, .Feed5, .Feed6, .Feed7, .Feed8])
+        snapshot.appendSections([.Feed1, .Feed2, .Feed3, .Feed4, .Feed5, .Feed6, .Feed7, .Feed8, .Feed9])
         snapshot.appendItems([Int](0...4), toSection: .Feed1)
         snapshot.appendItems([Int](5...9), toSection: .Feed2)
         snapshot.appendItems([Int](10...14), toSection: .Feed3)
@@ -75,6 +93,7 @@ final class DSCVCollectionViewController: UICollectionViewController {
         snapshot.appendItems([Int](36...40), toSection: .Feed6)
         snapshot.appendItems([Int](41...50), toSection: .Feed7)
         snapshot.appendItems([Int](51...60), toSection: .Feed8)
+        snapshot.appendItems([Int](61...70), toSection: .Feed9)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 }

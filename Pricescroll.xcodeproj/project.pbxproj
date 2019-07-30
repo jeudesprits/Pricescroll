@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		550BF9F522E70D5E00DDB29A /* DSCVFeed1CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550BF9F422E70D5E00DDB29A /* DSCVFeed1CollectionViewCell.swift */; };
+		551957D522F050450024D89C /* DSCVFeed6CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551957D422F050450024D89C /* DSCVFeed6CollectionViewCell.swift */; };
 		553193D822E7814C0005DEDD /* Identifieble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553193D722E7814C0005DEDD /* Identifieble.swift */; };
 		557E776A22E9AA4900FF5FDC /* DSCVFeed2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E776922E9AA4900FF5FDC /* DSCVFeed2CollectionViewCell.swift */; };
 		55A4609C22E4EDA10079C9C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A4609B22E4EDA10079C9C5 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		550BF9F422E70D5E00DDB29A /* DSCVFeed1CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSCVFeed1CollectionViewCell.swift; sourceTree = "<group>"; };
+		551957D422F050450024D89C /* DSCVFeed6CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSCVFeed6CollectionViewCell.swift; sourceTree = "<group>"; };
 		553193D722E7814C0005DEDD /* Identifieble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifieble.swift; sourceTree = "<group>"; };
 		55342DE522E6499F00A7166F /* DSCVCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSCVCollectionView.swift; sourceTree = "<group>"; };
 		557E776922E9AA4900FF5FDC /* DSCVFeed2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSCVFeed2CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				55B1DE9522E9BE210075A8D2 /* DSCVFeed3CollectionViewCell.swift */,
 				55A8D3BD22EDF3C70055888F /* DSCVFeed4CollectionViewCell.swift */,
 				55A8D3BF22EE242E0055888F /* DSCVFeed5CollectionViewCell.swift */,
+				551957D422F050450024D89C /* DSCVFeed6CollectionViewCell.swift */,
 			);
 			path = "Cells and Supplementary Views";
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				55A8D3BE22EDF3C70055888F /* DSCVFeed4CollectionViewCell.swift in Sources */,
 				557E776A22E9AA4900FF5FDC /* DSCVFeed2CollectionViewCell.swift in Sources */,
 				55A4609C22E4EDA10079C9C5 /* AppDelegate.swift in Sources */,
+				551957D522F050450024D89C /* DSCVFeed6CollectionViewCell.swift in Sources */,
 				55A460CF22E4EE710079C9C5 /* TabBarController.swift in Sources */,
 				55A8D3C022EE242E0055888F /* DSCVFeed5CollectionViewCell.swift in Sources */,
 				553193D822E7814C0005DEDD /* Identifieble.swift in Sources */,
