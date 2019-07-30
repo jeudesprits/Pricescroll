@@ -49,6 +49,24 @@ final class DSCVFeed4CollectionViewCell: UICollectionViewCell, Identifiable {
         return $0
     }(UILabel(frame: .zero))
     
+    private lazy var separatorView: UIView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .separator
+        return $0
+    }(UIView(frame: .zero))
+    
+    var showsSeparator = true {
+        didSet {
+            separatorView.isHidden = !showsSeparator
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        showsSeparator = true
+    }
+    
     private func setupIllustrationConstraints() {
         contentView.addSubview(illustration)
         
@@ -69,7 +87,7 @@ final class DSCVFeed4CollectionViewCell: UICollectionViewCell, Identifiable {
         NSLayoutConstraint.activate([
             title.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1.0),
             title.leadingAnchor.constraint(equalToSystemSpacingAfter: illustration.trailingAnchor, multiplier: 2.0),
-            contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: title.trailingAnchor, multiplier: 2.0),
+            title.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
     }
     
@@ -82,7 +100,7 @@ final class DSCVFeed4CollectionViewCell: UICollectionViewCell, Identifiable {
         NSLayoutConstraint.activate([
             subtitle.topAnchor.constraint(equalToSystemSpacingBelow: title.bottomAnchor, multiplier: 0.5),
             subtitle.leadingAnchor.constraint(equalToSystemSpacingAfter: illustration.trailingAnchor, multiplier: 2.0),
-            contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: subtitle.trailingAnchor, multiplier: 2.0),
+            subtitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
     }
     
@@ -102,11 +120,26 @@ final class DSCVFeed4CollectionViewCell: UICollectionViewCell, Identifiable {
         ])
     }
     
+    private func setupSeparatorViewConstraints() {
+        contentView.addSubview(separatorView)
+        
+        NSLayoutConstraint.activate([
+            separatorView.leadingAnchor.constraint(
+                equalToSystemSpacingAfter: illustration.trailingAnchor,
+                               multiplier: 1.0
+            ),
+            separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            separatorView.heightAnchor.constraint(equalToConstant: 1.0 / UIScreen.main.scale)
+        ])
+    }
+    
     private func setupConstraints() {
         setupIllustrationConstraints()
         setupTitleConstraints()
         setupSubtitleConstraints()
         setupPriceConstraints()
+        setupSeparatorViewConstraints()
     }
     
     override static var requiresConstraintBasedLayout: Bool { true }

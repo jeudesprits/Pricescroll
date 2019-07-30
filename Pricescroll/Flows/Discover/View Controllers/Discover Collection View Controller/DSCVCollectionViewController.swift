@@ -46,7 +46,15 @@ final class DSCVCollectionViewController: UICollectionViewController {
             } else if indexPath.section == 3 {
                 return self.configureCell(type: DSCVFeed2CollectionViewCell.self, in: collectionView, for: indexPath)
             } else if indexPath.section == 4 {
-                return self.configureCell(type: DSCVFeed4CollectionViewCell.self, in: collectionView, for: indexPath)
+                return self.configureCell(
+                    type: DSCVFeed4CollectionViewCell.self,
+                      in: collectionView,
+                     for: indexPath
+                ) { cell in
+                    if (indexPath.item + 1).isMultiple(of: 2) {
+                        cell.showsSeparator = false
+                    }
+                }
             } else if indexPath.section == 5 {
                 return self.configureCell(
                     type: DSCVFeed5CollectionViewCell.self,
